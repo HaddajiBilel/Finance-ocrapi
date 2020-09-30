@@ -30,11 +30,14 @@ class FileView(APIView):
             # save the new file
             file_serializer.save()
             # save the extracted tables
-            fileMeta = File.objects.get(id=file_serializer.data['id'])
-            tabExtract(str(fileMeta.file))
-            fileMeta.tabPath = 'media/output/'+str(fileMeta.file)[:-4]+'.xlsx'
-            fileMeta.save()
-
+            try:
+                fileMeta = File.objects.get(id=file_serializer.data['id'])
+                tabExtract(str(fileMeta.file))
+                fileMeta.tabPath = 'media/output/' + \
+                    str(fileMeta.file)[:-4]+'.xlsx'
+                fileMeta.save()
+            except:
+                return HttpResponse({'error : bad file structure/type'}, status=status.HTTP_400_BAD_REQUEST)
             with open(fileMeta.tabPath, 'rb')as fh:
                 response = HttpResponse(
                     fh.read(), content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
