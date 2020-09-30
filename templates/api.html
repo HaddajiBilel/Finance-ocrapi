@@ -1,0 +1,13 @@
+{% extends 'home.html' %} 
+{% block api %}
+
+<form action="/ocr/" enctype="multipart/form-data" method="POST">
+{% csrf_token %}
+  <div class="form-group" >
+    <label> Pick an excel file </label>
+    <input type="file" class="form-control-file" name='file'>
+    <button type="submit" class="btn btn-primary mt-2" >Submit</button>
+  </div>
+</form>
+
+{% endblock %}
