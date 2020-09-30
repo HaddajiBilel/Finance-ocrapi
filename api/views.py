@@ -30,6 +30,7 @@ class FileView(APIView):
             # save the new file
             file_serializer.save()
             # save the extracted tables
+
             try:
                 fileMeta = File.objects.get(id=file_serializer.data['id'])
                 tabExtract(str(fileMeta.file))
