@@ -9,10 +9,10 @@ import sys
 
 def tabExtract(filePath):  # ocr_api\media\sfbt.pdf
 
-    print("Python version")
-    print(sys.version)
-    print("Version info.")
-    print(sys.version_info)
+    #print("Python version")
+    # print(sys.version)
+    #print("Version info.")
+    # print(sys.version_info)
 
     # Read and Extract tables from the pdf file
     tables = tabula.read_pdf('media/'+filePath, multiple_tables=True,

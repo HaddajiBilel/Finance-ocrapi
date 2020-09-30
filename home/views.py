@@ -10,7 +10,7 @@ def home(request):
     return render(request, 'home.html')
 
 
-def login(request):
+def signin(request):
     if request.user.is_authenticated:
         return render(request, 'api.html')
     if request.method == 'POST':
@@ -19,7 +19,7 @@ def login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home/')
+            return redirect('/')
         else:
             form = AuthenticationForm(request.POST)
             return render(request, 'login.html', {'form': form})

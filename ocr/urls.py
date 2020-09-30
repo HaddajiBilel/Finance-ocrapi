@@ -9,7 +9,7 @@ urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
     path('ocr/', include('api.urls')),
-    path('home/', include('home.urls'))
+    path('', include('home.urls'))
 ]
 handler404 = 'ocr.views.view_404'
 if settings.DEBUG:
