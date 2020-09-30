@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'xlc+c68a44(b%4hve(!eq35yrul9636d18ysq+%)w$-v^b8wuh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['https://finance-ocrapi.herokuapp.com']
 
